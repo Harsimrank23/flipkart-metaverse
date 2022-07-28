@@ -39,7 +39,7 @@ section .container .user .imgBx{
     position: relative;
     width: 50%;
     height: 100%;
-    background: #ff0;
+    background: rgb(200, 200, 190);
     transition: 0.5s;
     /* border: 1.5px solid rgb(68, 68, 68); */
     
@@ -50,7 +50,7 @@ section .container .user .imgBx img{
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit:cover;
     
 }
 section .container .user .formBx{
