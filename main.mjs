@@ -11,13 +11,15 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { doc, setDoc, getFirestore, getDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 
-
+//import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js"
 const login_form = document.getElementById("login-form");
 const register_form = document.getElementById("register-form");
+const add_to_cart = document.getElementById("cart");
+console.log(add_to_cart);
 console.log(login_form);
 
 const auth = getAuth();
-
+const items={};
   
 const db = getFirestore();
 
@@ -41,7 +43,7 @@ console.log(register_form)
               alert("Signed In Successfully");
               window.location="https://harsimrank23.github.io/flipkart-metaverse/intro.html"
               // window.location.replace("intro.html");
-             
+              items=docSnap.data().items;
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -79,6 +81,7 @@ if (register_form["username2"].value != "" && register_form["email2"].value != "
           setDoc(doc(db, "users", email2), {
             username: register_form["username2"].value,
             email: email2,
+            items:items,
         })
         .then(() => {
         console.log(userCredential);
@@ -99,3 +102,8 @@ else{
 }
 });
 }
+
+add_to_cart.addEventListener("click",function(event){
+  console.log("bought");
+});
+
