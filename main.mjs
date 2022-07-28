@@ -39,7 +39,8 @@ console.log(register_form)
             .then((userCredential) => {
               console.log("Document data:", docSnap.data());
               alert("Signed In Successfully");
-              window.location.replace("intro.html");
+              window.location="https://harsimrank23.github.io/flipkart-metaverse/intro.html"
+              // window.location.replace("intro.html");
              
             })
             .catch((error) => {
@@ -82,7 +83,8 @@ if (register_form["username2"].value != "" && register_form["email2"].value != "
         .then(() => {
         console.log(userCredential);
         alert("Account Created")
-        window.location.replace("intro.html")
+        window.location="https://harsimrank23.github.io/flipkart-metaverse/intro.html"
+        // window.location.replace("intro.html")
     })
 
     })
