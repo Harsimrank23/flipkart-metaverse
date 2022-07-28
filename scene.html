@@ -22,16 +22,23 @@
             content: "*";
             color: red;
         }
+        .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        }
     </style>
 </head>
 <body>
     <canvas class = "webgl"></canvas>
     <div class="container mt-5">
-        <button type="button" id = "dress" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#myModal">view dress</button>
-        <button type="button" id = "suits" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#myModal">View suit</button>
-        <button type="button" id = "shoes" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#myModal">View shoes</button>
-        <button type="button" id = "casuals" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#myModal">View casuals</button>
-        <div class="modal" id="myModal">
+        <button type="button" class="btn btn-dark" id = "dress" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#myModal1">view dress</button>
+        <button type="button" class="btn btn-dark"  id = "suits" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#myModal2">View suit</button>
+        <button type="button" class="btn btn-dark" id = "shoes" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#myModal3">View shoes</button>
+        <button type="button" class="btn btn-dark"  id = "casuals" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#myModal4">View casuals</button>
+        
+        <div class="modal" id="myModal1">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -43,11 +50,8 @@
                             <div class="mb-3">
                                 <!-- <img src="images/clothes.png" width="450" 
                                 height="350"> -->
-                                <model-viewer src = "assets/dress1/scene.gltf" ar auto-rotate camera-controls camera-controls width = "450" height="350"></model-viewer>
-                                <!-- <model-viewer src = "assets/man_dummy/scene.gltf" camera-controls width = "450" height="350"></model-viewer>
-                                <model-viewer src = "assets/nike_air_jordan/scene.gltf" camera-controls width = "450" height="350"></model-viewer>
-                                <model-viewer src = "assets/a_set_of_victorian_clothes/scene.gltf" camera-controls width = "450" height="350"></model-viewer> -->
-                                  
+                                <model-viewer src = "assets/dress1/scene.gltf" ar auto-rotate camera-controls camera-controls width = "450" height="350" class="center"></model-viewer>
+                                 
                                 <!-- <model-viewer src = "" id="shop" camera-controls width = "450" height="350"></model-viewer> -->
                                 
                                 
@@ -59,7 +63,89 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-dark">Add to Cart</button>
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                        <button type="submit" class="btn btn-dark">View in AR</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                       </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="myModal2">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Item-Description</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="buy">
+                            <div class="mb-3">
+                                <model-viewer src = "assets/a_set_of_victorian_clothes/scene.gltf" camera-controls width = "450" height="350" class="center"></model-viewer>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required">Quantity</label>
+                                <input type="number" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                        <button type="submit" class="btn btn-dark">View in AR</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                       </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="myModal3">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Item-Description</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="buy">
+                            <div class="mb-3">
+                               <model-viewer src = "assets/nike_air_jordan/scene.gltf" camera-controls width = "450" height="350" class="center"></model-viewer>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required">Quantity</label>
+                                <input type="number" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                        <button type="submit" class="btn btn-dark">View in AR</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                       </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="myModal4">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Item-Description</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="buy">
+                            <div class="mb-3">
+                                <model-viewer src = "assets/man_dummy/scene.gltf" camera-controls width = "950" height="1600" class="center"></model-viewer> 
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required">Quantity</label>
+                                <input type="number" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                        <button type="submit" class="btn btn-dark">View in AR</button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                        </div>
                 </div>
