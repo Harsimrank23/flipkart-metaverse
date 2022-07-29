@@ -3,7 +3,18 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118/build/three.mod
 import {FBXLoader} from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/loaders/FBXLoader.js';
 import {GLTFLoader} from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/loaders/GLTFLoader.js';
 import {ARButton} from  './three.js-master/examples/jsm/webxr/ARButton.js';
-console.log(ARButton);
+var loadingScreen={
+  scene:new THREE.Scene(),
+  camera:new THREE.PerspectiveCamera(90,1280/720,0.1,100),
+  box:new THREE.Mesh(
+    new THREE.BoxGeometry(0.5,0.5,0.5),
+    new THREE.MeshBasicMaterial({color:0x4444ff})
+  )
+
+};
+var RESOURCES_LOADED = false;
+var LOADING_MANAGER = null;
+
 class BasicCharacterControllerProxy {
   constructor(animations) {
     this._animations = animations;
@@ -21,6 +32,7 @@ class BasicCharacterController {
   }
 
   _Init(params) {
+    
     this._params = params;
     this._decceleration = new THREE.Vector3(-0.0005, -0.0001, -5.0);
     this._acceleration = new THREE.Vector3(1, 0.25, 50.0);
@@ -542,7 +554,20 @@ class ThirdPersonCameraDemo {
     this._camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     this._camera.position.set(25, 10, 25);
 
+   
+    
     this._scene = new THREE.Scene();
+    loadingScreen.box.position.set(0,0,5);
+    loadingScreen.camera.lookAt(loadingScreen.box.position);
+    loadingScreen.scene.add(loadingScreen.box);
+    const loadingManager = new THREE.LoadingManager();
+    loadingManager.onProgress = function(item,loaded,total){
+      console.log(item,loaded,total);
+    }
+    loadingManager.onLoad = function(){
+      console.log("all resources loaded");
+      RESOURCES_LOADED = true;
+    }
    
     //document.addEventListener( 'pointermove',(e)=> this._onPointerMove(e),false);
    
@@ -566,7 +591,7 @@ class ThirdPersonCameraDemo {
     light = new THREE.AmbientLight(0xFFFFFF, 0.25);
     this._scene.add(light);
     
-    const loader = new THREE.CubeTextureLoader();
+    const loader = new THREE.CubeTextureLoader(loadingManager);
     const texture = loader.load([
         './assets/lawn/posx.jpg',
         './assets/lawn/negx.jpg',
@@ -590,7 +615,7 @@ class ThirdPersonCameraDemo {
     
 
 
-    const loader1 = new GLTFLoader();
+    const loader1 = new GLTFLoader(loadingManager);
         loader1.load('./assets/metaverse shop.gltf', (gltf) => {
            gltf.scene.scale.set(15,15,10); 
           gltf.scene.traverse(c => {
@@ -731,6 +756,30 @@ class ThirdPersonCameraDemo {
   }
 
   _RAF() {
+    if(RESOURCES_LOADED==false)
+    {
+      requestAnimationFrame((t) => {
+        if (this._previousRAF === null) {
+          this._previousRAF = t;
+        }
+  
+        this._RAF();
+  
+        // this._threejs.render(this._scene, this._camera);
+        // this._Step(t - this._previousRAF);
+        //this._previousRAF = t;
+      });
+      
+      loadingScreen.box.position.x-=0.05;
+      if(loadingScreen.box.position.x<-10)
+      {
+        loadingScreen.box.position.x=10;
+      }
+      loadingScreen.box.position.y = Math.sin(loadingScreen.box.position.x);
+
+      this._threejs.render(loadingScreen.scene,loadingScreen.camera);
+      return;
+    }
     requestAnimationFrame((t) => {
       if (this._previousRAF === null) {
         this._previousRAF = t;
