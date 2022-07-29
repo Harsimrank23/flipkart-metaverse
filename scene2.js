@@ -27,11 +27,11 @@ class BasicCharacterControllerProxy {
 
 
 class BasicCharacterController {
-  constructor(params) {
-    this._Init(params);
+  constructor(params,loadingManager) {
+    this._Init(params,loadingManager);
   }
 
-  _Init(params) {
+  _Init(params,loadingManager) {
     
     this._params = params;
     this._decceleration = new THREE.Vector3(-0.0005, -0.0001, -5.0);
@@ -44,11 +44,11 @@ class BasicCharacterController {
     this._stateMachine = new CharacterFSM(
         new BasicCharacterControllerProxy(this._animations));
 
-    this._LoadModels();
+    this._LoadModels(loadingManager);
   }
 
-  _LoadModels() {
-    const loader = new FBXLoader();
+  _LoadModels(loadingManager) {
+    const loader = new FBXLoader(loadingManager);
     
     loader.load('assets/mremireh_o_desbiens.fbx', (fbx) => {
       fbx.scale.setScalar(0.1);
@@ -76,7 +76,7 @@ class BasicCharacterController {
         };
       };
 
-      const loader = new FBXLoader(this._manager);
+      const loader = new FBXLoader(this._manager,loadingManager);
       
       loader.load('assets/walk.fbx', (a) => { _OnLoad('walk', a); });
       loader.load('assets/run.fbx', (a) => { _OnLoad('run', a); });
@@ -724,7 +724,7 @@ class ThirdPersonCameraDemo {
     this._mixers = [];
     this._previousRAF = null;
     //this._onPointerMove();
-    this._LoadAnimatedModel();
+    this._LoadAnimatedModel(loadingManager);
     this._RAF();
     //this._threejs.domElement.addEventListener('click',(e)=>onClick(e), false);
   }
@@ -736,12 +736,12 @@ class ThirdPersonCameraDemo {
 
 
 
-  _LoadAnimatedModel() {
+  _LoadAnimatedModel(loadingManager) {
     const params = {
       camera: this._camera,
       scene: this._scene,
     }
-    this._controls = new BasicCharacterController(params);
+    this._controls = new BasicCharacterController(params,loadingManager);
 
     this._thirdPersonCamera = new ThirdPersonCamera({
       camera: this._camera,
