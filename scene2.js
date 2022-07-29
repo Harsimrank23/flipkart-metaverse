@@ -568,6 +568,16 @@ class ThirdPersonCameraDemo {
       console.log("all resources loaded");
       RESOURCES_LOADED = true;
     }
+    const listener = new THREE.AudioListener();
+    this._camera.add(listener);
+    const audioLoader = new THREE.AudioLoader();
+    const backgroundSound = new THREE.Audio(listener);
+    audioLoader.load('sounds/bgMusic.mp3', function(buffer){
+      backgroundSound.setBuffer(buffer);
+      backgroundSound.setLoop(true);
+      backgroundSound.setVolume(0.4);
+      backgroundSound.play();
+    });
    
     //document.addEventListener( 'pointermove',(e)=> this._onPointerMove(e),false);
    

@@ -14,7 +14,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase
 //import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js"
 const login_form = document.getElementById("login-form");
 const register_form = document.getElementById("register-form");
-const add_to_cart = document.getElementById("cart");
+const add_to_cart = document.getElementById("cart1");
 console.log(add_to_cart);
 console.log(login_form);
 
@@ -103,7 +103,8 @@ else{
 });
 }
 
-add_to_cart.addEventListener("click",function(event){
+add_to_cart.addEventListener("click",async (event)=>{
   console.log("bought");
+  
 });
 
