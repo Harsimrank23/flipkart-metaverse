@@ -645,46 +645,46 @@ class ThirdPersonCameraDemo {
            
          });
          
-  //        loader1.load('./assets/man_dummy/scene.gltf', (gltf) => {
-  //         gltf.scene.scale.set(15,15,10); 
-  //         gltf.scene.position.x+=30;
-  //         gltf.scene.position.y+=1;
-  //         gltf.scene.position.z-=50;
+         loader1.load('./assets/man_dummy/scene.gltf', (gltf) => {
+          gltf.scene.scale.set(15,15,10); 
+          gltf.scene.position.x+=30;
+          gltf.scene.position.y+=1;
+          gltf.scene.position.z-=50;
          
-  //        gltf.scene.traverse(c => {
-  //          c.castShadow = true;
-  //        });
-  //        this._scene.add(gltf.scene);
+         gltf.scene.traverse(c => {
+           c.castShadow = true;
+         });
+         this._scene.add(gltf.scene);
          
-  //      });
+       });
 
-  //      loader1.load('./assets/a_set_of_victorian_clothes/scene.gltf', (gltf) => {
-  //       gltf.scene.scale.set(18,18,12); 
-  //       gltf.scene.position.x+=60;
-  //       gltf.scene.position.y+=0;
-  //       gltf.scene.position.z-=50;
+       loader1.load('./assets/a_set_of_victorian_clothes/scene.gltf', (gltf) => {
+        gltf.scene.scale.set(18,18,12); 
+        gltf.scene.position.x+=60;
+        gltf.scene.position.y+=0;
+        gltf.scene.position.z-=50;
        
-  //      gltf.scene.traverse(c => {
-  //        c.castShadow = true;
-  //      });
-  //      this._scene.add(gltf.scene);
+       gltf.scene.traverse(c => {
+         c.castShadow = true;
+       });
+       this._scene.add(gltf.scene);
        
-  //    });
+     });
      
 
-  //    loader1.load('./assets/nike_air_jordan/scene.gltf', (gltf) => {
-  //     gltf.scene.scale.set(1,2,2); 
-  //     gltf.scene.position.x+=35;
-  //     gltf.scene.position.y+=3;
-  //     gltf.scene.position.z+=8;
-  //     gltf.scene.rotation.y+=8;
+     loader1.load('./assets/nike_air_jordan/scene.gltf', (gltf) => {
+      gltf.scene.scale.set(1,2,2); 
+      gltf.scene.position.x+=35;
+      gltf.scene.position.y+=3;
+      gltf.scene.position.z+=8;
+      gltf.scene.rotation.y+=8;
      
-  //    gltf.scene.traverse(c => {
-  //      c.castShadow = true;
-  //    });
-  //    this._scene.add(gltf.scene);
+     gltf.scene.traverse(c => {
+       c.castShadow = true;
+     });
+     this._scene.add(gltf.scene);
      
-  //  });
+   });
           
   });
     
