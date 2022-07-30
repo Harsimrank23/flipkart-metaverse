@@ -49,7 +49,7 @@ function recalculateCart(onlyTotal) {
   });
 
   /* Calculate totals */
-  var total = subtotal;
+  var total = subtotal+(subtotal*0.02);
 
   //If there is a valid promoCode, and subtotal < 10 subtract from total
   var promoPrice = parseFloat($('.promo-value').text());

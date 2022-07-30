@@ -67,8 +67,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <input id="cart1" type="submit" name="" value="Add to Cart">
-                        <!-- <a href="cart.html" class="btn btn-success" id="cart1">Add to Cart</a> -->
+                        <button onclick="func()" class="btn btn-success">Add to Cart</button>
                         <a href="https://dress1.glitch.me/" class="btn btn-dark">View in AR</a>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                        </div>
@@ -95,7 +94,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <a href="cart.html" class="btn btn-success" id="cart">Add to Cart</a>
+                        <button onclick="func()" class="btn btn-success">Add to Cart</button>
                         <a href="https://formals.glitch.me" class="btn btn-dark">View in AR</a>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                        </div>
@@ -122,7 +121,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <a href="cart.html" class="btn btn-success">Add to Cart</a>
+                        <button onclick="func()" class="btn btn-success">Add to Cart</button>
                         <!-- <button type="submit" class="btn btn-dark">View in AR</button> -->
                         <a href="https://nike-air-jordan-shoes.glitch.me" class="btn btn-dark">View in AR</a>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -150,7 +149,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <a href="cart.html" class="btn btn-success">Add to Cart</a>
+                        <button onclick="func()" class="btn btn-success">Add to Cart</button>
                         <a href="https://casual-clothes.glitch.me" class="btn btn-dark">View in AR</a>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                        </div>
@@ -159,7 +158,11 @@
         </div>
     </div>
     
-    
+    <script>
+        function func() {
+          alert("Added to cart");
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <!-- <script type="module" src="scene2.js"></script> -->
     <script type="module" src="scene2.js"></script>

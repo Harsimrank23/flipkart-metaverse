@@ -575,7 +575,7 @@ class ThirdPersonCameraDemo {
     audioLoader.load('sounds/bgMusic.mp3', function(buffer){
       backgroundSound.setBuffer(buffer);
       backgroundSound.setLoop(true);
-      backgroundSound.setVolume(0.4);
+      backgroundSound.setVolume(0.1);
       backgroundSound.play();
     });
    
@@ -738,12 +738,6 @@ class ThirdPersonCameraDemo {
     this._RAF();
     //this._threejs.domElement.addEventListener('click',(e)=>onClick(e), false);
   }
- 
- 
-  
-  
-   
-
 
 
   _LoadAnimatedModel(loadingManager) {
